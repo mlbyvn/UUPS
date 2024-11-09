@@ -1,66 +1,52 @@
-## Foundry
+# UUPS
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Sample small UUPS contract.
 
-Foundry consists of:
+## Description
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+This project implements an apgradable contract using Openzeppelin UUPS proxy. 
+Conventional opinion- proxies are bad, since a centralized entity can change the contract logic and corrupt the decentralization principles.
 
-## Documentation
+## Getting Started
 
-https://book.getfoundry.sh/
+### Dependencies
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+* [foundry](https://github.com/foundry-rs) 
+* 1. Run to install all libraries:
+```
+make install
 ```
 
-### Test
+### Installing
 
-```shell
-$ forge test
+* Add an .env file, in order to be able to deploy on sepolia using makefile
+    * SEPOLIA_RPC_URL: sepolia rpc url 
+    * ETHERSCAN_API_KEY: etherscan api key
+    * ACCOUNT_NAME: pre-setup account (cast wallet import)
+
+### Executing program
+
+* Build:
+```
+make build
+```
+* Tests on anvil:
+```
+make test
+```
+* Install dependencies:
+```
+make install
+```
+* Deploy on anvil:
+```
+make deploy-anvil
+```
+* Deploy on sepolia:
+```
+make deploy-sepolia
 ```
 
-### Format
+## Authors
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Aleksandr Rybin  
